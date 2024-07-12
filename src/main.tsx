@@ -4,8 +4,9 @@ import App from './App.tsx'
 import './index.css'
 
 import { Amplify } from 'aws-amplify';
-import config from './aws-exports';
+import config from './aws-exports.ts';
 Amplify.configure(config);
+import awsExports from './aws-exports.ts';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

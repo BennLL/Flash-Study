@@ -8,54 +8,120 @@ type GeneratedMutation<InputType, OutputType> = string & {
   __generatedMutationOutput: OutputType;
 };
 
-export const createTodo = /* GraphQL */ `mutation CreateTodo(
-  $input: CreateTodoInput!
-  $condition: ModelTodoConditionInput
+export const createFlashcard = /* GraphQL */ `mutation CreateFlashcard(
+  $input: CreateFlashcardInput!
+  $condition: ModelFlashcardConditionInput
 ) {
-  createTodo(input: $input, condition: $condition) {
+  createFlashcard(input: $input, condition: $condition) {
     id
-    name
-    description
+    question
+    answer
+    setID
     createdAt
     updatedAt
     __typename
   }
 }
 ` as GeneratedMutation<
-  APITypes.CreateTodoMutationVariables,
-  APITypes.CreateTodoMutation
+  APITypes.CreateFlashcardMutationVariables,
+  APITypes.CreateFlashcardMutation
 >;
-export const updateTodo = /* GraphQL */ `mutation UpdateTodo(
-  $input: UpdateTodoInput!
-  $condition: ModelTodoConditionInput
+export const updateFlashcard = /* GraphQL */ `mutation UpdateFlashcard(
+  $input: UpdateFlashcardInput!
+  $condition: ModelFlashcardConditionInput
 ) {
-  updateTodo(input: $input, condition: $condition) {
+  updateFlashcard(input: $input, condition: $condition) {
     id
-    name
-    description
+    question
+    answer
+    setID
     createdAt
     updatedAt
     __typename
   }
 }
 ` as GeneratedMutation<
-  APITypes.UpdateTodoMutationVariables,
-  APITypes.UpdateTodoMutation
+  APITypes.UpdateFlashcardMutationVariables,
+  APITypes.UpdateFlashcardMutation
 >;
-export const deleteTodo = /* GraphQL */ `mutation DeleteTodo(
-  $input: DeleteTodoInput!
-  $condition: ModelTodoConditionInput
+export const deleteFlashcard = /* GraphQL */ `mutation DeleteFlashcard(
+  $input: DeleteFlashcardInput!
+  $condition: ModelFlashcardConditionInput
 ) {
-  deleteTodo(input: $input, condition: $condition) {
+  deleteFlashcard(input: $input, condition: $condition) {
     id
-    name
-    description
+    question
+    answer
+    setID
     createdAt
     updatedAt
     __typename
   }
 }
 ` as GeneratedMutation<
-  APITypes.DeleteTodoMutationVariables,
-  APITypes.DeleteTodoMutation
+  APITypes.DeleteFlashcardMutationVariables,
+  APITypes.DeleteFlashcardMutation
+>;
+export const createFlashcardSet = /* GraphQL */ `mutation CreateFlashcardSet(
+  $input: CreateFlashcardSetInput!
+  $condition: ModelFlashcardSetConditionInput
+) {
+  createFlashcardSet(input: $input, condition: $condition) {
+    id
+    title
+    description
+    flashcards {
+      nextToken
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateFlashcardSetMutationVariables,
+  APITypes.CreateFlashcardSetMutation
+>;
+export const updateFlashcardSet = /* GraphQL */ `mutation UpdateFlashcardSet(
+  $input: UpdateFlashcardSetInput!
+  $condition: ModelFlashcardSetConditionInput
+) {
+  updateFlashcardSet(input: $input, condition: $condition) {
+    id
+    title
+    description
+    flashcards {
+      nextToken
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateFlashcardSetMutationVariables,
+  APITypes.UpdateFlashcardSetMutation
+>;
+export const deleteFlashcardSet = /* GraphQL */ `mutation DeleteFlashcardSet(
+  $input: DeleteFlashcardSetInput!
+  $condition: ModelFlashcardSetConditionInput
+) {
+  deleteFlashcardSet(input: $input, condition: $condition) {
+    id
+    title
+    description
+    flashcards {
+      nextToken
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteFlashcardSetMutationVariables,
+  APITypes.DeleteFlashcardSetMutation
 >;

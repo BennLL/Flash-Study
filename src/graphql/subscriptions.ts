@@ -8,45 +8,108 @@ type GeneratedSubscription<InputType, OutputType> = string & {
   __generatedSubscriptionOutput: OutputType;
 };
 
-export const onCreateTodo = /* GraphQL */ `subscription OnCreateTodo($filter: ModelSubscriptionTodoFilterInput) {
-  onCreateTodo(filter: $filter) {
+export const onCreateFlashcard = /* GraphQL */ `subscription OnCreateFlashcard($filter: ModelSubscriptionFlashcardFilterInput) {
+  onCreateFlashcard(filter: $filter) {
     id
-    name
-    description
+    question
+    answer
+    setID
     createdAt
     updatedAt
     __typename
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnCreateTodoSubscriptionVariables,
-  APITypes.OnCreateTodoSubscription
+  APITypes.OnCreateFlashcardSubscriptionVariables,
+  APITypes.OnCreateFlashcardSubscription
 >;
-export const onUpdateTodo = /* GraphQL */ `subscription OnUpdateTodo($filter: ModelSubscriptionTodoFilterInput) {
-  onUpdateTodo(filter: $filter) {
+export const onUpdateFlashcard = /* GraphQL */ `subscription OnUpdateFlashcard($filter: ModelSubscriptionFlashcardFilterInput) {
+  onUpdateFlashcard(filter: $filter) {
     id
-    name
-    description
+    question
+    answer
+    setID
     createdAt
     updatedAt
     __typename
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnUpdateTodoSubscriptionVariables,
-  APITypes.OnUpdateTodoSubscription
+  APITypes.OnUpdateFlashcardSubscriptionVariables,
+  APITypes.OnUpdateFlashcardSubscription
 >;
-export const onDeleteTodo = /* GraphQL */ `subscription OnDeleteTodo($filter: ModelSubscriptionTodoFilterInput) {
-  onDeleteTodo(filter: $filter) {
+export const onDeleteFlashcard = /* GraphQL */ `subscription OnDeleteFlashcard($filter: ModelSubscriptionFlashcardFilterInput) {
+  onDeleteFlashcard(filter: $filter) {
     id
-    name
-    description
+    question
+    answer
+    setID
     createdAt
     updatedAt
     __typename
   }
 }
 ` as GeneratedSubscription<
-  APITypes.OnDeleteTodoSubscriptionVariables,
-  APITypes.OnDeleteTodoSubscription
+  APITypes.OnDeleteFlashcardSubscriptionVariables,
+  APITypes.OnDeleteFlashcardSubscription
+>;
+export const onCreateFlashcardSet = /* GraphQL */ `subscription OnCreateFlashcardSet(
+  $filter: ModelSubscriptionFlashcardSetFilterInput
+) {
+  onCreateFlashcardSet(filter: $filter) {
+    id
+    title
+    description
+    flashcards {
+      nextToken
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateFlashcardSetSubscriptionVariables,
+  APITypes.OnCreateFlashcardSetSubscription
+>;
+export const onUpdateFlashcardSet = /* GraphQL */ `subscription OnUpdateFlashcardSet(
+  $filter: ModelSubscriptionFlashcardSetFilterInput
+) {
+  onUpdateFlashcardSet(filter: $filter) {
+    id
+    title
+    description
+    flashcards {
+      nextToken
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateFlashcardSetSubscriptionVariables,
+  APITypes.OnUpdateFlashcardSetSubscription
+>;
+export const onDeleteFlashcardSet = /* GraphQL */ `subscription OnDeleteFlashcardSet(
+  $filter: ModelSubscriptionFlashcardSetFilterInput
+) {
+  onDeleteFlashcardSet(filter: $filter) {
+    id
+    title
+    description
+    flashcards {
+      nextToken
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteFlashcardSetSubscriptionVariables,
+  APITypes.OnDeleteFlashcardSetSubscription
 >;

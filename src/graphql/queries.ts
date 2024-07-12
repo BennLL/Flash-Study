@@ -8,26 +8,71 @@ type GeneratedQuery<InputType, OutputType> = string & {
   __generatedQueryOutput: OutputType;
 };
 
-export const getTodo = /* GraphQL */ `query GetTodo($id: ID!) {
-  getTodo(id: $id) {
+export const getFlashcard = /* GraphQL */ `query GetFlashcard($id: ID!) {
+  getFlashcard(id: $id) {
     id
-    name
-    description
+    question
+    answer
+    setID
     createdAt
     updatedAt
     __typename
   }
 }
-` as GeneratedQuery<APITypes.GetTodoQueryVariables, APITypes.GetTodoQuery>;
-export const listTodos = /* GraphQL */ `query ListTodos(
-  $filter: ModelTodoFilterInput
+` as GeneratedQuery<
+  APITypes.GetFlashcardQueryVariables,
+  APITypes.GetFlashcardQuery
+>;
+export const listFlashcards = /* GraphQL */ `query ListFlashcards(
+  $filter: ModelFlashcardFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listTodos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listFlashcards(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      name
+      question
+      answer
+      setID
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListFlashcardsQueryVariables,
+  APITypes.ListFlashcardsQuery
+>;
+export const getFlashcardSet = /* GraphQL */ `query GetFlashcardSet($id: ID!) {
+  getFlashcardSet(id: $id) {
+    id
+    title
+    description
+    flashcards {
+      nextToken
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetFlashcardSetQueryVariables,
+  APITypes.GetFlashcardSetQuery
+>;
+export const listFlashcardSets = /* GraphQL */ `query ListFlashcardSets(
+  $filter: ModelFlashcardSetFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listFlashcardSets(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      title
       description
       createdAt
       updatedAt
@@ -37,4 +82,40 @@ export const listTodos = /* GraphQL */ `query ListTodos(
     __typename
   }
 }
-` as GeneratedQuery<APITypes.ListTodosQueryVariables, APITypes.ListTodosQuery>;
+` as GeneratedQuery<
+  APITypes.ListFlashcardSetsQueryVariables,
+  APITypes.ListFlashcardSetsQuery
+>;
+export const flashcardsBySetIDAndQuestion = /* GraphQL */ `query FlashcardsBySetIDAndQuestion(
+  $setID: ID!
+  $question: ModelStringKeyConditionInput
+  $sortDirection: ModelSortDirection
+  $filter: ModelFlashcardFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  flashcardsBySetIDAndQuestion(
+    setID: $setID
+    question: $question
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      question
+      answer
+      setID
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.FlashcardsBySetIDAndQuestionQueryVariables,
+  APITypes.FlashcardsBySetIDAndQuestionQuery
+>;
